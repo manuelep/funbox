@@ -19,3 +19,7 @@ python3 -m pip install -U funbox
 ```sh
 python3 -m funbox.pokemon1.play
 ```
+
+# Resources
+
+* https://packaging.python.org/en/latest/tutorials/packaging-projects/#packaging-python-projects
