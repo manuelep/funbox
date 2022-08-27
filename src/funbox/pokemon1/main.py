@@ -4,11 +4,6 @@ import pygame
 from . import settings
 from .common import logger
 
-def foo():
-    logger.debug('debug')
-    logger.info('info')
-    logger.warning('warning!')
-
 def play():
 
     pygame.init()

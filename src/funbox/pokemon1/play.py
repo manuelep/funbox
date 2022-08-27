@@ -24,6 +24,6 @@ if __name__ == '__main__':
         settings.LOGGERS = [f'{level.lower() or "info"}:{store or "stdout"}'
             for level,store in itertools.zip_longest(args.log_level, args.log_file)]
 
-    from .main import play, foo
+    from .main import play
 
-    foo()
+    play()
