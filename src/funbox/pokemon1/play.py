@@ -1,13 +1,29 @@
 # -*- coding: utf-8 -*-
 
-import pygame
-from . import settings
+import logging
+import itertools
+from .. import settings
 
-pygame.init()
+if __name__ == '__main__':
 
-screen = pygame.display.set_mode(settings.DISPLAY)
+    import argparse
+    parser = argparse.ArgumentParser()
 
-pygame.display.set_caption(settings.GAME_TITLE)
+    parser.add_argument('-l', '--log-level', help='Log level setup',
+        default=[], action='append',
+        choices = [logging.getLevelName(level) for level in range(10, 60, 10)]
+    )
 
-while True:
-    pygame.display.flip()
+    parser.add_argument('-f', '--log-file', help='Log file',
+        default=[], action='append'
+    )
+
+    args = parser.parse_args()
+
+    if any((args.log_level, args.log_file,)):
+        settings.LOGGERS = [f'{level.lower() or "info"}:{store or "stdout"}'
+            for level,store in itertools.zip_longest(args.log_level, args.log_file)]
+
+    from .main import play, foo
+
+    foo()

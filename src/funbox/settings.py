@@ -2,5 +2,5 @@
 
 # logger settings
 LOGGERS = [
-    "debug:stdout"
+    "warning:stdout"
 ]  # syntax "severity:filename" filename can be stderr or stdout
