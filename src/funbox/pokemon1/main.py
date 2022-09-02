@@ -3,24 +3,24 @@
 import pygame
 from . import settings
 from .common import logger
+from .game import Game
+from .game import GameState
 
 def play():
 
     pygame.init()
 
     screen = pygame.display.set_mode(settings.DISPLAY)
+    game = Game(screen)
 
     pygame.display.set_caption(settings.GAME_TITLE)
 
-    running = True
-    while running:
-
-        # Did the user click the window close button?
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
+    game.set_up()
+    while game.game_state==GameState.RUNNING:
+        game.update()
         pygame.display.flip()
+        logger.debug(game.game_state)
+    logger.debug(game.game_state)
 
     # Done! Time to quit.
     pygame.quit()
