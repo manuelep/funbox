@@ -9,3 +9,5 @@ BLACK = (0,0,0,)
 WHITE = (255,255,255,)
 
 GAME_TITLE = "Pokemon Clone"
+
+PLAYER_SCALE = 10
