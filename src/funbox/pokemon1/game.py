@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from . import settings
 from .common import logger
 from enum import Enum
 import pygame
@@ -33,6 +34,7 @@ class Game(object):
         logger.debug("Questo è l'update")
         # TODO:
         # Disegno dei giocatori nell'area di gioco
+        self.screen.fill(settings.BLACK)
         self.handle_events()
         for object in self.objects:
             object.render(self.screen)
