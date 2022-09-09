@@ -13,6 +13,7 @@ BACKGROUND_COLOR = BLACK
 GAME_TITLE = "Pokemon Clone"
 
 PLAYER_SCALE = 50
+SCALE = PLAYER_SCALE
 
 CHAR_PATH = 'kenney_platformercharacters/PNG/'
 TILE_PATH = 'kenney_topdowntanksredux/PNG/Default size/'
