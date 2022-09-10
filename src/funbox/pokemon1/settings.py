@@ -2,7 +2,7 @@
 
 GAME_TITLE = "Pokemon Clone"
 
-DISPLAY = (600, 400)
+DISPLAY = (640, 480)
 
 BLACK = (0,0,0,)
 
@@ -12,7 +12,7 @@ BACKGROUND_COLOR = BLACK
 
 GAME_TITLE = "Pokemon Clone"
 
-PLAYER_SCALE = 50
+PLAYER_SCALE = 32
 SCALE = PLAYER_SCALE
 
 CHAR_PATH = 'kenney_platformercharacters/PNG/'

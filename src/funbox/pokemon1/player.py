@@ -24,9 +24,13 @@ class Player(object):
     def update(self):
         logger.debug('Updating player')
 
-    def update_position(self, x_change, y_change):
-        self.position[0] += x_change
-        self.position[1] += y_change
+    def update_position(self, x, y, relative=True):
+        if relative:
+            self.position[0] += x
+            self.position[1] += y
+        else:
+            self.position[0] = x
+            self.position[1] = y
         self.rect = pygame.Rect(
             self.position[0] * settings.PLAYER_SCALE,
             self.position[1] * settings.PLAYER_SCALE,

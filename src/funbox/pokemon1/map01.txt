@@ -1,15 +1,15 @@
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
-G G G G G G G G G G G G G G G
+G G G G G G G G G G G G G G G G G G G G
+G G G G G G G G G G G G G G G G G G G G
+G G G s G G s s s g G G s s G G G G G G
+G G G s G G s g g g G s G G s G G G G G
+G G G s G G s s s G g S G G s G G G G G
+G G G s G G s G G g g s G G s G G G G G
+G G G s s g s s s G G G s s G G G G G G
+G G G G G G G G G G G g G G G G G G G G
+G G G G G G G G G G G G G G G G G G G G
+G G G G G G G G G G G G G G G G G G G G
+G G G G G G G G G S s G G G G G G G G G
+G G G G G G G G G S S s G G G G G G G G
+G G G G G G G G G G s G S G G G G G G G
+G G G G G G G G G G G G s S G G G G G G
+G G G G G G G G G G G G G G G G G G G G

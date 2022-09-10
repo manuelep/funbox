@@ -10,7 +10,9 @@ from pathlib import Path
 
 map_tile_image = {
     "G": pygame.image.load(path_to_tile('tileGrass1.png')),
-    "W": pygame.image.load(path_to_tile('tileGrass2.png'))
+    "g": pygame.image.load(path_to_tile('tileGrass2.png')),
+    "S": pygame.image.load(path_to_tile('tileSand1.png')),
+    "s": pygame.image.load(path_to_tile('tileSand2.png')),
 }
 
 class GameState(Enum):
@@ -29,9 +31,11 @@ class Map(object):
     def load(self, src):
         tiles = []
         with open(Path(__file__).parent / src) as mapfile:
-            for line in mapfile:
+            for index,line in enumerate(mapfile):
                 tileline = line.split()
                 tiles.append(tileline)
+            self.height = index
+            self.width = len(line)
         return tiles
 
     def render(self, screen):
@@ -71,19 +75,20 @@ class Game(object):
         for object in self.objects:
             object.render(self.screen)
 
-
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 logger.debug('QUIT!')
                 self.game_state = GameState.ENDED
             if event.type == pygame.KEYDOWN:
-                # UP
+                newx, newy = self.player.position
                 if event.key == pygame.K_w:
-                    self.player.update_position(0, -1)
+                    newy = max(self.player.position[1]-1, 0)
                 elif event.key == pygame.K_s:
-                    self.player.update_position(0, 1)
+                    newy = min(self.player.position[1]+1, self.map.height)
                 elif event.key == pygame.K_d:
-                    self.player.update_position(1, 0)
+                    newx = min(self.player.position[0]+1, self.map.width)
                 elif event.key == pygame.K_a:
-                    self.player.update_position(-1, 0)
+                    newx = max(self.player.position[0]-1, 0)
+
+                self.player.update_position(newx, newy, relative=False)
