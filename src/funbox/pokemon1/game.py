@@ -87,7 +87,8 @@ class Game(object):
         elif y <= 0:
             newy = max(unit.position[1]+y, 0)
 
-        unit.update_position(newx, newy, relative=False)
+        if self.map.tiles[newy][newx].lower() != 's':
+            unit.update_position(newx, newy, relative=False)
 
 
 
