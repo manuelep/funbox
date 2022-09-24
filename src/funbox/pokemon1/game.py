@@ -35,7 +35,7 @@ class Map(object):
                 tileline = line.split()
                 tiles.append(tileline)
             self.height = index
-            self.width = len(line)
+            self.width = len(tileline)
         return tiles
 
     def render(self, screen):
@@ -56,14 +56,14 @@ class Game(object):
         self.objects = []
 
     def set_up(self):
-        logger.debug('Questo è il setup')
+        # logger.debug('Questo è il setup')
         self.game_state = GameState.RUNNING
         self.player = Player(1, 1)
         self.objects.append(self.player)
         self.map = Map('map01.txt')
 
     def update(self):
-        logger.debug("Questo è l'update")
+        # logger.debug("Questo è l'update")
         # TODO:
         # Disegno dei giocatori nell'area di gioco
         self.screen.fill(settings.BLACK)
@@ -75,20 +75,36 @@ class Game(object):
         for object in self.objects:
             object.render(self.screen)
 
+    def move_unit(self, unit, x, y):
+
+        if x > 0:
+            newx = min(unit.position[0]+x, self.map.width-1)
+        elif x <= 0:
+            newx = max(unit.position[0]+x, 0)
+
+        if y > 0:
+            newy = min(unit.position[1]+y, self.map.height)
+        elif y <= 0:
+            newy = max(unit.position[1]+y, 0)
+
+        unit.update_position(newx, newy, relative=False)
+
+
+
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 logger.debug('QUIT!')
                 self.game_state = GameState.ENDED
             if event.type == pygame.KEYDOWN:
-                newx, newy = self.player.position
+                x, y = 0, 0
                 if event.key == pygame.K_w:
-                    newy = max(self.player.position[1]-1, 0)
+                    y = -1
                 elif event.key == pygame.K_s:
-                    newy = min(self.player.position[1]+1, self.map.height)
+                    y = 1
                 elif event.key == pygame.K_d:
-                    newx = min(self.player.position[0]+1, self.map.width)
+                    x = 1
                 elif event.key == pygame.K_a:
-                    newx = max(self.player.position[0]-1, 0)
+                    x = -1
 
-                self.player.update_position(newx, newy, relative=False)
+                self.move_unit(self.player, x, y)

@@ -19,7 +19,7 @@ def play():
     while game.game_state==GameState.RUNNING:
         game.update()
         pygame.display.flip()
-        logger.debug(game.game_state)
+        # logger.debug(game.game_state)
     logger.debug(game.game_state)
 
     # Done! Time to quit.
